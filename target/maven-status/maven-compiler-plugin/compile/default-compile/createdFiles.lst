@@ -1,0 +1,13 @@
+pe\utp\vidplagas\controller\LoteController.class
+pe\utp\vidplagas\model\Plaga.class
+pe\utp\vidplagas\controller\ReporteController.class
+pe\utp\vidplagas\model\Plaga$PlagaBuilder.class
+pe\utp\vidplagas\config\FileStorageConfig.class
+pe\utp\vidplagas\model\Reporte$ReporteBuilder.class
+pe\utp\vidplagas\config\SecurityConfig.class
+pe\utp\vidplagas\controller\PlagaController.class
+pe\utp\vidplagas\model\Lote.class
+pe\utp\vidplagas\VidPlagasApplication.class
+pe\utp\vidplagas\repository\ReporteRepository.class
+pe\utp\vidplagas\model\Lote$LoteBuilder.class
+pe\utp\vidplagas\model\Reporte.class

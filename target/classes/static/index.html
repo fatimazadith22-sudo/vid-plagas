@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RacimoSano · Catálogo de plagas de la vid</title>
+  <meta name="description" content="Catálogo de plagas y enfermedades que afectan los racimos de uva, con guía de síntomas y recomendaciones de manejo.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind = { config: {
+      theme: {
+        extend: {
+          colors: {
+            plum:  { 700: '#552E52', 900: '#2E1A2E' },
+            vine:  { 600: '#4F7942', 700: '#3C5E32' },
+            amber: { 500: '#C98A2C' },
+            severe:{ 600: '#A3402F' },
+            paper: '#F3EFE6'
+          },
+          fontFamily: {
+            display: ['Fraunces', 'Georgia', 'serif'],
+            body: ['"Work Sans"', 'sans-serif']
+          }
+        }
+      }
+    } }
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-paper font-body text-plum-900 antialiased">
+
+  <header class="bg-plum-900 text-paper">
+    <div class="mx-auto max-w-6xl px-4 py-4 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+      <a href="index.html" class="font-display text-xl font-semibold">
+        Racimo<span class="text-amber-500">Sano</span>
+      </a>
+      <nav aria-label="Navegación principal">
+        <ul class="flex gap-6 font-medium">
+          <li><a class="border-b-2 border-amber-500 pb-0.5" href="index.html" aria-current="page">Catálogo</a></li>
+          <li><a class="border-b-2 border-transparent pb-0.5 hover:border-amber-500" href="reportar.html">Reportar plaga</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="bg-gradient-to-b from-plum-700 to-plum-900 text-paper">
+      <div class="mx-auto max-w-6xl px-4 py-16 sm:py-20">
+        <p class="font-semibold text-amber-500 mb-2">Sistema de Alerta Temprana</p>
+        <h1 class="font-display font-semibold text-3xl sm:text-4xl max-w-xl leading-tight">
+         Prevención de pérdidas silenciosas en el viñedo
+        </h1>
+        <p class="mt-4 max-w-xl text-plum-100/90">
+         RacimoSano reúne las plagas y enfermedades más críticas en el cultivo de uva. 
+         Accede a estrategias de intervención temprana y recomendaciones de manejo para 
+         garantizar que las decisiones agrícolas se tomen en el momento exacto.
+        </p>
+        <a href="reportar.html"
+           class="mt-6 inline-block rounded-md bg-amber-500 px-6 py-3 font-semibold text-plum-900 hover:bg-amber-500/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500">
+          Registrar 
+        </a>
+      </div>
+    </section>
+
+    <section class="mx-auto max-w-6xl px-4 py-14" aria-labelledby="catalog-heading">
+      <hgroup class="mb-6">
+        <h2 id="catalog-heading" class="font-display font-semibold text-2xl text-plum-900">
+          Plagas
+        </h2>
+        <p class="text-plum-900/70 mt-1">Filtra por tipo de plagas y recomendaciones.</p>
+      </hgroup>
+
+      <div class="flex flex-wrap gap-2 mb-4" role="group" aria-label="Filtrar catálogo por tipo de plaga">
+        <button type="button" data-tipo="todos"
+                class="filter-btn is-active rounded-md border px-4 py-2 text-sm font-medium bg-vine-600 border-vine-600 text-white">
+          Todos
+        </button>
+        <button type="button" data-tipo="Hongo"
+                class="filter-btn rounded-md border px-4 py-2 text-sm font-medium bg-white border-plum-900/15 text-plum-900 hover:border-vine-600">
+          Hongos
+        </button>
+        <button type="button" data-tipo="Insecto"
+                class="filter-btn rounded-md border px-4 py-2 text-sm font-medium bg-white border-plum-900/15 text-plum-900 hover:border-vine-600">
+          Insectos
+        </button>
+        <button type="button" data-tipo="Acaro"
+                class="filter-btn rounded-md border px-4 py-2 text-sm font-medium bg-white border-plum-900/15 text-plum-900 hover:border-vine-600">
+          Ácaros
+        </button>
+      </div>
+
+      <p id="catalog-status" role="status" aria-live="polite" class="italic text-plum-900/60 mb-4">
+        Cargando catálogo…
+      </p>
+
+      <div id="pest-grid" class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+  </main>
+
+  <footer class="bg-plum-900 text-paper/70">
+    <div class="mx-auto max-w-6xl px-4 py-5 flex flex-col gap-1 text-sm sm:flex-row sm:justify-between">
+      <p>RacimoSano —  Sanidad vegetal en viñedos.</p>
+     
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
