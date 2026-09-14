@@ -1,1 +1,1 @@
-Texto B
+Texto definitivo resuelto
