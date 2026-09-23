@@ -90,3 +90,4 @@ curl -X POST http://localhost:8080/api/reportes ^
 - **MySQL**: el driver ya está en el `pom.xml`; para usarlo solo hay que descomentar el bloque correspondiente en `application.properties` y comentar el de H2.
 - **Autoría del reporte**: cuando se agregue login, se puede añadir un campo `usuario` a `Reporte` tomado del `Authentication` actual, en vez de un input libre.
 ## Cambio de prueba realizado el Tue Sep 22 19:05:04 HPS 2026
+## Modificación realizada en la rama feature/actualizacion-proyecto
