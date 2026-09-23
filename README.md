@@ -89,3 +89,4 @@ curl -X POST http://localhost:8080/api/reportes ^
 - **Spring Security** está agregado pero deliberadamente abierto (`permitAll()`), para no romper el envío del formulario ni el `curl` mientras no exista login. Cuando se implemente autenticación, `SecurityConfig` es el punto donde se restringen rutas y se retoma el patrón de doble `SecurityFilterChain` (sesión + JWT) que ya usaste en el proyecto "security" de adopción de mascotas.
 - **MySQL**: el driver ya está en el `pom.xml`; para usarlo solo hay que descomentar el bloque correspondiente en `application.properties` y comentar el de H2.
 - **Autoría del reporte**: cuando se agregue login, se puede añadir un campo `usuario` a `Reporte` tomado del `Authentication` actual, en vez de un input libre.
+## Cambio de prueba realizado el Tue Sep 22 19:05:04 HPS 2026
