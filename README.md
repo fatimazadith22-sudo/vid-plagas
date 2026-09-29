@@ -91,3 +91,4 @@ curl -X POST http://localhost:8080/api/reportes ^
 - **Autoría del reporte**: cuando se agregue login, se puede añadir un campo `usuario` a `Reporte` tomado del `Authentication` actual, en vez de un input libre.
 ## Cambio de prueba realizado el Tue Sep 22 19:05:04 HPS 2026
 Línea editada por el Colaborador A
+Línea editada por el Líder en Master
