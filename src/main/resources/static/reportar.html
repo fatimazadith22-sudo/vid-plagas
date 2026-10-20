@@ -41,6 +41,9 @@
         <ul class="flex gap-6 font-medium">
           <li><a class="border-b-2 border-transparent pb-0.5 hover:border-amber-500" href="index.html">Catálogo</a></li>
           <li><a class="border-b-2 border-amber-500 pb-0.5" href="reportar.html" aria-current="page">Reportar plaga</a></li>
+          <li id="auth-nav-item">
+            <a href="login.html" class="rounded-md border border-amber-500/60 px-3 py-1.5 text-sm font-semibold text-amber-500 hover:bg-amber-500 hover:text-plum-900 transition">Iniciar sesión</a>
+          </li>
         </ul>
       </nav>
     </div>
@@ -162,5 +165,36 @@
   </footer>
 
   <script src="js/app.js"></script>
+  <script>
+    (function () {
+      fetch('/api/me', { credentials: 'same-origin' })
+        .then(function (res) { return res.ok ? res.json() : { authenticated: false }; })
+        .then(function (data) {
+          if (!data.authenticated) return;
+          var item = document.getElementById('auth-nav-item');
+          if (!item) return;
+          item.textContent = '';
+          item.className = 'flex items-center gap-3';
+
+          var greeting = document.createElement('span');
+          greeting.className = 'text-sm text-paper/70';
+          greeting.textContent = 'Hola, ' + data.username;
+
+          var form = document.createElement('form');
+          form.method = 'post';
+          form.action = '/logout';
+          form.className = 'inline';
+          var btn = document.createElement('button');
+          btn.type = 'submit';
+          btn.className = 'rounded-md border border-amber-500/60 px-3 py-1.5 text-sm font-semibold text-amber-500 hover:bg-amber-500 hover:text-plum-900 transition';
+          btn.textContent = 'Cerrar sesión';
+          form.appendChild(btn);
+
+          item.appendChild(greeting);
+          item.appendChild(form);
+        })
+        .catch(function () {});
+    })();
+  </script>
 </body>
 </html>

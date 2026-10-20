@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" class="h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión - RacimoSano</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700;800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            plum: { 700: '#5B2A86', 900: '#3E1C5F' },
+            vine: { 600: '#3A7A40', 700: '#2F5F32' },
+            amber: { 500: '#F59E0B' },
+            severe: { 600: '#DC2626' },
+            paper: '#F7F3EA'
+          },
+          fontFamily: {
+            display: ['Fraunces', 'serif'],
+            sans: ['Work Sans', 'system-ui', 'sans-serif']
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Work Sans', system-ui, sans-serif; background-color: #F7F3EA; }
+    .font-display { font-family: 'Fraunces', serif; }
+  </style>
+</head>
+
+<body class="h-full bg-paper text-stone-900">
+  <header class="bg-gradient-to-br from-plum-700 to-plum-900 text-white shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <div class="h-10 w-10 rounded-full bg-white/10 border border-white/20 flex items-center justify-center">
+          <span class="text-xl">??</span>
+        </div>
+        <h1 class="font-display text-xl sm:text-2xl tracking-tight">RacimoSano</h1>
+      </div>
+      <nav class="flex flex-wrap gap-2 text-sm">
+        <a href="index.html" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition">Catálogo</a>
+        <a href="reportar.html" class="px-3 py-1.5 rounded-lg bg-white/10 hover:bg-white/20 transition">Reportar plaga</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <section class="max-w-md mx-auto">
+      <div class="bg-white rounded-2xl shadow-lg overflow-hidden border border-stone-200">
+        <div class="bg-gradient-to-br from-plum-700 to-plum-900 text-white px-6 py-5">
+          <h2 class="font-display text-xl">Iniciar sesión</h2>
+          <p class="text-white/80 text-sm mt-1">Accede para gestionar tus reportes</p>
+        </div>
+        <div class="px-6 py-6 space-y-4">
+          <div id="error-msg" class="hidden rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-800">Credenciales incorrectas</div>
+          <div id="logout-msg" class="hidden rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm text-emerald-800">Sesión cerrada correctamente</div>
+          <form method="post" action="/login" class="space-y-4">
+            <div>
+              <label for="username" class="block text-sm font-medium text-stone-700 mb-1">Correo electrónico</label>
+              <input type="text" id="username" name="username" required autocomplete="username" class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-vine-600 focus:border-transparent" placeholder="correo@ejemplo.com">
+            </div>
+            <div>
+              <label for="password" class="block text-sm font-medium text-stone-700 mb-1">Contraseña</label>
+              <input type="password" id="password" name="password" required autocomplete="current-password" class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:outline-none focus:ring-2 focus:ring-vine-600 focus:border-transparent" placeholder="••••••••">
+            </div>
+            <button type="submit" class="w-full px-4 py-2.5 rounded-lg bg-vine-600 hover:bg-vine-700 text-white font-medium shadow-sm hover:shadow transition">Iniciar sesión</button>
+          </form>
+          <div class="text-center">
+            <a href="index.html" class="text-sm text-plum-700 hover:text-plum-900 hover:underline">Volver al inicio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="mt-10 py-6 text-center text-sm text-stone-600">
+    <div class="max-w-6xl mx-auto px-4">© 2025 RacimoSano · Observatorio de plagas</div>
+  </footer>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    if (params.has('error')) document.getElementById('error-msg').classList.remove('hidden');
+    if (params.has('logout')) document.getElementById('logout-msg').classList.remove('hidden');
+  </script>
+</body>
+
+</html>
